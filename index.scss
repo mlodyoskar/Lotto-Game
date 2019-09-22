@@ -1,0 +1,46 @@
+*,
+*::before,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(#e66465, #9198e5);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container input {
+  width: 70px;
+  height: 50px;
+  font-size: 22px;
+  margin: 0 5px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+.info {
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.btn {
+  border: none;
+  background-color: white;
+  border-bottom: 2px solid black;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.drawn {
+  font-size: 2em;
+  letter-spacing: 2px;
+}
