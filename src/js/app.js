@@ -60,9 +60,7 @@ btnAgain.addEventListener("click", function() {
   btnRandom.style.display = "block";
   for (var i = 0; i < v.length; i++) {
     v[i].style.backgroundColor = "white";
-  }
-  drawn.innerHTML = "Wylosowane liczby: ";
-  for (var i = 0; i < v.length; i++) {
     v[i].value = "";
   }
+  drawn.innerHTML = "Wylosowane liczby: ";
 });
