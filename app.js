@@ -1,40 +1,68 @@
 //Pobieranie elementów do zmiennych
-const btn = document.querySelector(".btn");
+const btnRandom = document.querySelector(".btn-random");
+const btnAgain = document.querySelector(".btn-again");
 const drawn = document.querySelector(".drawn");
-const result = document.querySelector(".result");
 
-btn.addEventListener("click", function() {
-  var random = [];
-  var inputs = [];
+var v = [...document.querySelectorAll(".inputs")];
 
-  var v = [...document.querySelectorAll(".inputs")];
-  for (var i = 0; i < v.length; i++) {
-    inputs.push(v[i].value);
+var isWon = false;
 
-    var rand = Math.round(Math.random() * 44) + 1;
-    console.log(rand);
-    if (random.indexOf(rand) == -1) {
-      random.push(rand);
-    } else {
+btnRandom.addEventListener("click", function() {
+  if (!isWon) {
+    var random = [];
+    var inputs = [];
+
+    const getRandom = () => {
       var rand = Math.round(Math.random() * 44) + 1;
-      random.push(rand);
-    }
-  }
-  drawn.innerHTML = "Wylosowane liczby: " + random;
+      if (random.indexOf(rand) == -1) {
+        random.push(rand);
+      } else {
+        var rand = Math.round(Math.random() * 44) + 1;
+        random.push(rand);
+      }
+    };
 
+    const changeToGreen = () => {
+      for (var i = 0; i < v.length; i++) {
+        for (var j = 0; j < v.length; j++) {
+          if (inputs[j] == random[i]) {
+            v[j].style.backgroundColor = "green";
+          }
+        }
+      }
+    };
+
+    const changeDisplay = () => {
+      btnRandom.style.display = "none";
+      for (var i = 0; i < v.length; i++) {
+        v[i].disabled = true;
+      }
+    };
+
+    for (var i = 0; i < v.length; i++) {
+      inputs.push(v[i].value);
+      getRandom();
+    }
+
+    drawn.innerHTML = "Wylosowane liczby: " + random;
+
+    changeToGreen();
+    changeDisplay();
+
+    isWon = true;
+  }
+});
+btnAgain.addEventListener("click", function() {
+  isWon = false;
+  for (var i = 0; i < v.length; i++) {
+    v[i].disabled = false;
+  }
+  btnRandom.style.display = "block";
   for (var i = 0; i < v.length; i++) {
     v[i].style.backgroundColor = "white";
   }
-
+  drawn.innerHTML = "Wylosowane liczby: ";
   for (var i = 0; i < v.length; i++) {
-    for (var j = 0; j < v.length; j++) {
-      if (inputs[j] == random[i]) {
-        v[j].style.backgroundColor = "green";
-      }
-    }
+    v[i].value = "";
   }
-  console.log(v);
-
-  // console.log(inputs);
-  // console.log(random);
 });

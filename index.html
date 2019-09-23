@@ -15,14 +15,17 @@
   <body>
     <p class="info">PODAJ 6 LICZB Z PRZEDIAŁU 1-45</p>
     <div class="container">
-      <input type="number" class="inputs" />
-      <input type="number" class="inputs" />
-      <input type="number" class="inputs" />
-      <input type="number" class="inputs" />
-      <input type="number" class="inputs" />
-      <input type="number" class="inputs" />
+      <input type="number" min="1" max="45" class="inputs" />
+      <input type="number" min="1" max="45" class="inputs" />
+      <input type="number" min="1" max="45" class="inputs" />
+      <input type="number" min="1" max="45" class="inputs" />
+      <input type="number" min="1" max="45" class="inputs" />
+      <input type="number" min="1" max="45" class="inputs" />
     </div>
-    <button class="btn">LOSUJ</button>
+    <div class="buttons">
+      <button type="button" class="btn btn-random">LOSUJ</button>
+      <button type="button" class="btn btn-again">ZAGRAJ PONOWNIE</button>
+    </div>
     <p class="drawn">Wylosowane liczby:</p>
     <script src="app.js"></script>
   </body>
